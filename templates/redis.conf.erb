@@ -1,10 +1,10 @@
 daemonize no
-pidfile /var/run/redis_<%= port %>.pid
-port <%= port %>
-bind <%= config_bind %>
-timeout <%= config_timeout %>
-loglevel <%= config_loglevel %>
-logfile /var/log/redis-<%= port %>.log
+pidfile /var/run/redis_<%= @port %>.pid
+port <%= @port %>
+bind <%= @config_bind %>
+timeout <%= @config_timeout %>
+loglevel <%= @config_loglevel %>
+logfile /var/log/redis-<%= @port %>.log
 databases 16
 
 ################################ SNAPSHOTTING  #################################
@@ -13,7 +13,7 @@ save 900 1
 save 300 10
 save 60 10000
 rdbcompression yes
-dbfilename dump_<%= port %>.rdb
+dbfilename dump_<%= @port %>.rdb
 dir /opt/redis/
 
 ################################# REPLICATION #################################
@@ -60,7 +60,7 @@ lua-time-limit 5000
 ################################ REDIS CLUSTER  ###############################
 
 # cluster-enabled yes
-# cluster-config-file nodes-<%= port %>.conf
+# cluster-config-file nodes-<%= @port %>.conf
 
 ################################## SLOW LOG ###################################
 
